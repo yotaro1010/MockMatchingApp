@@ -3,7 +3,7 @@
 	archiveVersion = 1;
 	classes = {
 	};
-	objectVersion = 50;
+	objectVersion = 52;
 	objects = {
 
 /* Begin PBXBuildFile section */
@@ -16,6 +16,11 @@
 		0C7815F9262D3340009EF7A4 /* MockMatchingAppUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0C7815F8262D3340009EF7A4 /* MockMatchingAppUITests.swift */; };
 		0C781615262D3865009EF7A4 /* BottomControlView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0C781614262D3865009EF7A4 /* BottomControlView.swift */; };
 		0C781620262D4094009EF7A4 /* UIImage-extention.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0C78161F262D4093009EF7A4 /* UIImage-extention.swift */; };
+		0CAB1FB0262DD24700D68759 /* TopControlView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0CAB1FAF262DD24700D68759 /* TopControlView.swift */; };
+		0CAB1FB6262DDFF800D68759 /* RxSwift in Frameworks */ = {isa = PBXBuildFile; productRef = 0CAB1FB5262DDFF800D68759 /* RxSwift */; };
+		0CAB1FB8262DDFF800D68759 /* RxCocoa in Frameworks */ = {isa = PBXBuildFile; productRef = 0CAB1FB7262DDFF800D68759 /* RxCocoa */; };
+		0CAB1FBA262DDFF800D68759 /* RxRelay in Frameworks */ = {isa = PBXBuildFile; productRef = 0CAB1FB9262DDFF800D68759 /* RxRelay */; };
+		0CAB1FC2262DEB3C00D68759 /* UIVIew-Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0CAB1FC1262DEB3C00D68759 /* UIVIew-Extension.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -51,6 +56,8 @@
 		0C7815FA262D3340009EF7A4 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		0C781614262D3865009EF7A4 /* BottomControlView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BottomControlView.swift; sourceTree = "<group>"; };
 		0C78161F262D4093009EF7A4 /* UIImage-extention.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIImage-extention.swift"; sourceTree = "<group>"; };
+		0CAB1FAF262DD24700D68759 /* TopControlView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TopControlView.swift; sourceTree = "<group>"; };
+		0CAB1FC1262DEB3C00D68759 /* UIVIew-Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIVIew-Extension.swift"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -58,6 +65,9 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				0CAB1FBA262DDFF800D68759 /* RxRelay in Frameworks */,
+				0CAB1FB8262DDFF800D68759 /* RxCocoa in Frameworks */,
+				0CAB1FB6262DDFF800D68759 /* RxSwift in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -142,6 +152,7 @@
 		0C781613262D3841009EF7A4 /* Views */ = {
 			isa = PBXGroup;
 			children = (
+				0CAB1FAF262DD24700D68759 /* TopControlView.swift */,
 				0C781614262D3865009EF7A4 /* BottomControlView.swift */,
 			);
 			path = Views;
@@ -151,6 +162,7 @@
 			isa = PBXGroup;
 			children = (
 				0C78161F262D4093009EF7A4 /* UIImage-extention.swift */,
+				0CAB1FC1262DEB3C00D68759 /* UIVIew-Extension.swift */,
 			);
 			path = extention;
 			sourceTree = "<group>";
@@ -171,6 +183,11 @@
 			dependencies = (
 			);
 			name = MockMatchingApp;
+			packageProductDependencies = (
+				0CAB1FB5262DDFF800D68759 /* RxSwift */,
+				0CAB1FB7262DDFF800D68759 /* RxCocoa */,
+				0CAB1FB9262DDFF800D68759 /* RxRelay */,
+			);
 			productName = MockMatchingApp;
 			productReference = 0C7815D3262D333B009EF7A4 /* MockMatchingApp.app */;
 			productType = "com.apple.product-type.application";
@@ -242,6 +259,9 @@
 				Base,
 			);
 			mainGroup = 0C7815CA262D333B009EF7A4;
+			packageReferences = (
+				0CAB1FB4262DDFF800D68759 /* XCRemoteSwiftPackageReference "RxSwift" */,
+			);
 			productRefGroup = 0C7815D4262D333B009EF7A4 /* Products */;
 			projectDirPath = "";
 			projectRoot = "";
@@ -284,8 +304,10 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				0CAB1FB0262DD24700D68759 /* TopControlView.swift in Sources */,
 				0C781620262D4094009EF7A4 /* UIImage-extention.swift in Sources */,
 				0C7815DB262D333B009EF7A4 /* HomeViewController.swift in Sources */,
+				0CAB1FC2262DEB3C00D68759 /* UIVIew-Extension.swift in Sources */,
 				0C7815D7262D333B009EF7A4 /* AppDelegate.swift in Sources */,
 				0C781615262D3865009EF7A4 /* BottomControlView.swift in Sources */,
 				0C7815D9262D333B009EF7A4 /* SceneDelegate.swift in Sources */,
@@ -613,6 +635,35 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCRemoteSwiftPackageReference section */
+		0CAB1FB4262DDFF800D68759 /* XCRemoteSwiftPackageReference "RxSwift" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/ReactiveX/RxSwift";
+			requirement = {
+				kind = exactVersion;
+				version = 6.1.0;
+			};
+		};
+/* End XCRemoteSwiftPackageReference section */
+
+/* Begin XCSwiftPackageProductDependency section */
+		0CAB1FB5262DDFF800D68759 /* RxSwift */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 0CAB1FB4262DDFF800D68759 /* XCRemoteSwiftPackageReference "RxSwift" */;
+			productName = RxSwift;
+		};
+		0CAB1FB7262DDFF800D68759 /* RxCocoa */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 0CAB1FB4262DDFF800D68759 /* XCRemoteSwiftPackageReference "RxSwift" */;
+			productName = RxCocoa;
+		};
+		0CAB1FB9262DDFF800D68759 /* RxRelay */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 0CAB1FB4262DDFF800D68759 /* XCRemoteSwiftPackageReference "RxSwift" */;
+			productName = RxRelay;
+		};
+/* End XCSwiftPackageProductDependency section */
 	};
 	rootObject = 0C7815CB262D333B009EF7A4 /* Project object */;
 }

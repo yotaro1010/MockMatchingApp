@@ -9,16 +9,16 @@ import Foundation
 
 class BottomControlView: UIView{
     
-    let view1 = ButtomButtonView(frame: .zero, width: 50, imageName: "reload")
-    let view2 = ButtomButtonView(frame: .zero, width: 60, imageName: "bad")
-    let view3 = ButtomButtonView(frame: .zero, width: 50, imageName: "superlike")
-    let view4 = ButtomButtonView(frame: .zero, width: 60, imageName: "like")
-    let view5 = ButtomButtonView(frame: .zero, width: 50, imageName: "boost")
+    let reloadView = ButtomButtonView(frame: .zero, width: 50, imageName: "reload")
+    let badView = ButtomButtonView(frame: .zero, width: 60, imageName: "bad")
+    let superlikeVIew = ButtomButtonView(frame: .zero, width: 50, imageName: "superlike")
+    let likeView = ButtomButtonView(frame: .zero, width: 60, imageName: "like")
+    let boostView = ButtomButtonView(frame: .zero, width: 50, imageName: "boost")
     
     override init(frame: CGRect) {
         super.init(frame: frame)
         
-        let baseStackView = UIStackView(arrangedSubviews: [view1,view2,view3,view4,view5])
+        let baseStackView = UIStackView(arrangedSubviews: [reloadView,badView,superlikeVIew,likeView,boostView])
         baseStackView.axis = .horizontal
         baseStackView.distribution = .fillEqually
         baseStackView.spacing = 10
@@ -28,8 +28,8 @@ class BottomControlView: UIView{
         [
             baseStackView.topAnchor.constraint(equalTo: topAnchor),
             baseStackView.bottomAnchor.constraint(equalTo: bottomAnchor),
-            baseStackView.rightAnchor.constraint(equalTo: rightAnchor, constant: 10),
-            baseStackView.leftAnchor.constraint(equalTo: leftAnchor, constant: -10),
+            baseStackView.rightAnchor.constraint(equalTo: rightAnchor, constant: -10),
+            baseStackView.leftAnchor.constraint(equalTo: leftAnchor, constant: 10),
             
         ].forEach{ $0.isActive = true }
     }
@@ -58,13 +58,13 @@ class  ButtomButtonView: UIView {
         button?.layer.shadowRadius = 15
         
         addSubview(button!)
-        
-        [
-            button?.centerYAnchor.constraint(equalTo: centerYAnchor),
-            button?.centerXAnchor.constraint(equalTo: centerXAnchor),
-            button?.widthAnchor.constraint(equalToConstant: width),
-            button?.heightAnchor.constraint(equalToConstant: width )
-        ].forEach{ $0?.isActive = true }
+        button?.anchor(centerY: centerYAnchor, centerX: centerXAnchor, width: width, height: width)
+//        [
+//            button?.centerYAnchor.constraint(equalTo: centerYAnchor),
+//            button?.centerXAnchor.constraint(equalTo: centerXAnchor),
+//            button?.widthAnchor.constraint(equalToConstant: width),
+//            button?.heightAnchor.constraint(equalToConstant: width )
+//        ].forEach{ $0?.isActive = true }
     }
     
     required init?(coder: NSCoder) {
