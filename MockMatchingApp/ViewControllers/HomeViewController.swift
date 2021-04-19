@@ -11,7 +11,7 @@ class HomeViewController: UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        view.backgroundColor = UIColor.white
+        view.backgroundColor = .white
         
         let view1 = UIView()
         view1.backgroundColor = .yellow
