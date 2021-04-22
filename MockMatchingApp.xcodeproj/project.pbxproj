@@ -29,6 +29,8 @@
 		0CB04399263179F000C12BCD /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 0CB04398263179F000C12BCD /* GoogleService-Info.plist */; };
 		0CB043B126317D9900C12BCD /* RegisterViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0CB043B026317D9900C12BCD /* RegisterViewController.swift */; };
 		0CB043B82631819400C12BCD /* RegisterTextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0CB043B72631819400C12BCD /* RegisterTextField.swift */; };
+		0CB043BD2631B9E600C12BCD /* RegisterTitleLabel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0CB043BC2631B9E600C12BCD /* RegisterTitleLabel.swift */; };
+		0CB043C22631BE5900C12BCD /* RegisterButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0CB043C12631BE5900C12BCD /* RegisterButton.swift */; };
 		0CBE74AF262F41F100B2D6DE /* CardView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0CBE74AE262F41F100B2D6DE /* CardView.swift */; };
 		32A22577E7DF6411832CB6EF /* Pods_MockMatchingApp.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 10D0BBD80C992BBC1B6F2C31 /* Pods_MockMatchingApp.framework */; };
 		4F5274455B89992572F9FDE9 /* Pods_MockMatchingApp_MockMatchingAppUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0D384E9ED7B1FADEE772834C /* Pods_MockMatchingApp_MockMatchingAppUITests.framework */; };
@@ -76,6 +78,8 @@
 		0CB04398263179F000C12BCD /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		0CB043B026317D9900C12BCD /* RegisterViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegisterViewController.swift; sourceTree = "<group>"; };
 		0CB043B72631819400C12BCD /* RegisterTextField.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegisterTextField.swift; sourceTree = "<group>"; };
+		0CB043BC2631B9E600C12BCD /* RegisterTitleLabel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegisterTitleLabel.swift; sourceTree = "<group>"; };
+		0CB043C12631BE5900C12BCD /* RegisterButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegisterButton.swift; sourceTree = "<group>"; };
 		0CBE74AE262F41F100B2D6DE /* CardView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CardView.swift; sourceTree = "<group>"; };
 		0D384E9ED7B1FADEE772834C /* Pods_MockMatchingApp_MockMatchingAppUITests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_MockMatchingApp_MockMatchingAppUITests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		10D0BBD80C992BBC1B6F2C31 /* Pods_MockMatchingApp.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_MockMatchingApp.framework; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -220,6 +224,8 @@
 			isa = PBXGroup;
 			children = (
 				0CB043B72631819400C12BCD /* RegisterTextField.swift */,
+				0CB043BC2631B9E600C12BCD /* RegisterTitleLabel.swift */,
+				0CB043C12631BE5900C12BCD /* RegisterButton.swift */,
 			);
 			path = Register;
 			sourceTree = "<group>";
@@ -493,8 +499,10 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				0CB043C22631BE5900C12BCD /* RegisterButton.swift in Sources */,
 				0CAB1FB0262DD24700D68759 /* TopControlView.swift in Sources */,
 				0C781620262D4094009EF7A4 /* UIImage-extention.swift in Sources */,
+				0CB043BD2631B9E600C12BCD /* RegisterTitleLabel.swift in Sources */,
 				0C7815DB262D333B009EF7A4 /* HomeViewController.swift in Sources */,
 				0CAB1FC2262DEB3C00D68759 /* UIVIew-Extension.swift in Sources */,
 				0C7815D7262D333B009EF7A4 /* AppDelegate.swift in Sources */,

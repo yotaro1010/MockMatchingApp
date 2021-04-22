@@ -20,26 +20,14 @@ class CardView:UIView{
 //
     private let cardImageView = CardImageView(frame: .zero)
     private let infoButton = UIButton(type: .system).createCardInfoButton()
-    private let nameLabel = CardInfoLabel(frame: .zero,
-                                                  labelText: "Taro, 23",
-                                                  labelFont: .systemFont(ofSize: 40,
-                                                                         weight: .heavy))
-    private let residenceLabel = CardInfoLabel(frame: .zero,
-                                                  labelText: "日本, 東京",
-                                                  labelFont: .systemFont(ofSize: 20,
-                                                                         weight: .regular))
-    private let hobbyLabel = CardInfoLabel(frame: .zero,
-                                                  labelText: "サッカー",
-                                                  labelFont: .systemFont(ofSize: 25,
-                                                                         weight: .regular))
-    private let introductionLabel = CardInfoLabel(frame: .zero,
-                                                  labelText: "とにかくサッカーが好きです",
-                                                  labelFont: .systemFont(ofSize: 25,
-                                                                         weight: .regular))
-       
     
-    private let goodLabel = CardInfoLabel(frame: .zero, labelText: "GOOD", labelColor: .rgb(red: 137, green: 223, blue: 86))
-    private let badLabel = CardInfoLabel(frame: .zero, labelText: "BAD", labelColor: .rgb(red: 222, green: 110, blue: 110))
+    private let nameLabel = CardInfoLabel(text: "Taro, 23", font: .systemFont(ofSize: 40,weight: .heavy))
+    private let residenceLabel = CardInfoLabel(text: "日本, 東京", font: .systemFont(ofSize: 20, weight: .regular))
+    private let hobbyLabel = CardInfoLabel(text: "サッカー", font: .systemFont(ofSize: 25, weight: .regular))
+    private let introductionLabel = CardInfoLabel(text: "とにかくサッカーが好きです", font: .systemFont(ofSize: 25, weight: .regular))
+    
+    private let goodLabel = CardInfoLabel(text: "GOOD", textColor: .rgb(red: 137, green: 223, blue: 86))
+    private let badLabel = CardInfoLabel(text: "BAD", textColor: .rgb(red: 222, green: 110, blue: 110))
     
     override init(frame: CGRect) {
         super.init(frame: frame)
