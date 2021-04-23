@@ -7,12 +7,15 @@
 
 import UIKit
 import RxSwift
+//　authでできるのはユーザーの認証のみ、データを管理するのではない
 import FirebaseAuth
+// 認証されたデータを管理
+import FirebaseFirestore
 
 class RegisterViewController :UIViewController {
     
     private let disposeBag = DisposeBag()
-    
+    private let viewModel = RegisterViewModel()
 
     private let registerTitleLabel = RegisterTitleLabel()
     private let nameTextField = RegisterTextField(placeHolder: "名前")
@@ -23,17 +26,12 @@ class RegisterViewController :UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         setUpGradientLayer()
+        setUpLayout()
         setUpBindings()
        
     }
     
-    override func viewDidLayoutSubviews() {
-        super.viewDidLayoutSubviews()
-        setUpLayout()
-    }
-    
     private func setUpLayout(){
-        passwordTextField.isSecureTextEntry = true
         let baseStackView = UIStackView(arrangedSubviews: [nameTextField, emailTextField, passwordTextField, registerButton])
         baseStackView.axis = .vertical
         baseStackView.distribution = .fillEqually
@@ -65,21 +63,24 @@ class RegisterViewController :UIViewController {
         nameTextField.rx.text
             .asDriver()
             .drive { [weak self] text in
-                
+//                ここでviewModelにデータを渡す
+                self?.viewModel.nameTextInput.onNext(text ?? "")
             }
             .disposed(by: disposeBag)
         
         emailTextField.rx.text
             .asDriver()
             .drive { [weak self] text in
-                
+                self?.viewModel.emailTextInput.onNext(text ?? "")
+
             }
             .disposed(by: disposeBag)
         
         passwordTextField.rx.text
             .asDriver()
             .drive { [weak self] text in
-                
+                self?.viewModel.passwordTextInput.onNext(text ?? "")
+
             }
             .disposed(by: disposeBag)
         
@@ -103,10 +104,29 @@ class RegisterViewController :UIViewController {
                 print("Failed to Authentification:", error)
                 return
             }
-            
+             
             guard let uid = auth?.user.uid  else {return}
-            print("Success Authentification:", uid)
+            self.setUserDataToFireStore(email: email, uid: uid)
         }
     }
-    
+    private func setUserDataToFireStore(email: String, uid: String){
+        
+        guard let name = nameTextField.text else {return}
+        
+//      dictionary型のユーザー情報を
+        let document = [
+            "name" : name,
+            "e-mail" : email,
+            "createdAt": Timestamp()
+        ] as [String : Any]
+        
+//        認証情報に紐づいたIDによって保存
+        Firestore.firestore().collection("users").document(uid).setData(document) { error in
+            if let error = error {
+                print("Failed to Authentification:", error)
+                return
+            }
+            print("Success Authentification")
+        }
+    }
 }

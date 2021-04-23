@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		056DB5751AF4CFF5D0152AFA /* Pods_MockMatchingAppTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = BBA19B7193C110FC5FAB7C09 /* Pods_MockMatchingAppTests.framework */; };
+		0C00222F2633453C0068E4BC /* RegisterViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0C00222E2633453C0068E4BC /* RegisterViewModel.swift */; };
 		0C7815D7262D333B009EF7A4 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0C7815D6262D333B009EF7A4 /* AppDelegate.swift */; };
 		0C7815D9262D333B009EF7A4 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0C7815D8262D333B009EF7A4 /* SceneDelegate.swift */; };
 		0C7815DB262D333B009EF7A4 /* HomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0C7815DA262D333B009EF7A4 /* HomeViewController.swift */; };
@@ -54,6 +55,7 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		0C00222E2633453C0068E4BC /* RegisterViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegisterViewModel.swift; sourceTree = "<group>"; };
 		0C7815D3262D333B009EF7A4 /* MockMatchingApp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = MockMatchingApp.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		0C7815D6262D333B009EF7A4 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		0C7815D8262D333B009EF7A4 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -123,6 +125,14 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		0C00222D263345150068E4BC /* ViewModel */ = {
+			isa = PBXGroup;
+			children = (
+				0C00222E2633453C0068E4BC /* RegisterViewModel.swift */,
+			);
+			path = ViewModel;
+			sourceTree = "<group>";
+		};
 		0C7815CA262D333B009EF7A4 = {
 			isa = PBXGroup;
 			children = (
@@ -150,6 +160,7 @@
 			children = (
 				0C781613262D3841009EF7A4 /* Views */,
 				0C781624262D40A5009EF7A4 /* extention */,
+				0C00222D263345150068E4BC /* ViewModel */,
 				0C781612262D3816009EF7A4 /* ViewControllers */,
 				0C7815D6262D333B009EF7A4 /* AppDelegate.swift */,
 				0C7815D8262D333B009EF7A4 /* SceneDelegate.swift */,
@@ -508,6 +519,7 @@
 				0C7815D7262D333B009EF7A4 /* AppDelegate.swift in Sources */,
 				0CA2771A263034DC00EB4E79 /* CardInfoLabel.swift in Sources */,
 				0C781615262D3865009EF7A4 /* BottomControlView.swift in Sources */,
+				0C00222F2633453C0068E4BC /* RegisterViewModel.swift in Sources */,
 				0CBE74AF262F41F100B2D6DE /* CardView.swift in Sources */,
 				0CA277252630398900EB4E79 /* UIButton.swift in Sources */,
 				0CA2770A26301F5300EB4E79 /* UIColor.swift in Sources */,
