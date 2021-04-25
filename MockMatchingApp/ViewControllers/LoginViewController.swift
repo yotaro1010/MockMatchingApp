@@ -83,6 +83,11 @@ class LoginViewController: UIViewController {
                 return
             }
             print("Success: Login")
+            self.dismiss(animated: true, completion: nil)
+            
+//            loginに成功後、自動的にFirebaseのキーチェーンに情報が保存される,
+//            実装する側としては何もしなくてもいいが、ログインされたままの状態になってしまっている,
+//            ログアウトもできる状態にしておく
         }
     }
 }
