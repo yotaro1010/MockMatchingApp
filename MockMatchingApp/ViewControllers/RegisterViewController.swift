@@ -17,18 +17,24 @@ class RegisterViewController :UIViewController {
     private let disposeBag = DisposeBag()
     private let viewModel = RegisterViewModel()
 
-    private let registerTitleLabel = RegisterTitleLabel()
+    private let registerTitleLabel = RegisterTitleLabel(text: "Tinder")
     private let nameTextField = RegisterTextField(placeHolder: "名前")
     private let emailTextField = RegisterTextField(placeHolder: "e-mail")
     private let passwordTextField = RegisterTextField(placeHolder: "password")
-    private let registerButton = RegisterButton()
+    private let registerButton = RegisterButton(text: "登録")
+    private let alreadyHaveAccountButton = UIButton(type: .system).createAboutAccountButton(text: "If you already have own account")
         
     override func viewDidLoad() {
         super.viewDidLoad()
         setUpGradientLayer()
         setUpLayout()
         setUpBindings()
-       
+    }
+    
+//    viewに遷移するたびに呼びたいのでviewWillAppearのライフサイクルの中で使う
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        navigationController?.isNavigationBarHidden = true
     }
     
     private func setUpLayout(){
@@ -38,11 +44,13 @@ class RegisterViewController :UIViewController {
         baseStackView.spacing = 20
         view.addSubview(baseStackView)
         view.addSubview(registerTitleLabel)
+        view.addSubview(alreadyHaveAccountButton)
         
 //      stackViewの中の一つのインスタンスの高さを決めると、それに準拠した均等な高さの値を割り振ってくれる
         nameTextField.anchor(height: 40)
         baseStackView.anchor(left: view.leftAnchor, right: view.rightAnchor, centerY: view.centerYAnchor, leftPadding: 40, rightPadding: 40)
         registerTitleLabel.anchor(bottom: baseStackView.topAnchor, centerX: view.centerXAnchor, bottomPadding: 20)
+        alreadyHaveAccountButton.anchor(top: baseStackView.bottomAnchor, centerX: view.centerXAnchor, topPadding: 20)
     }
     
     private func setUpGradientLayer(){
@@ -95,6 +103,13 @@ class RegisterViewController :UIViewController {
             }
             .disposed(by: disposeBag)
         
+        alreadyHaveAccountButton.rx.tap
+            .asDriver()
+            .drive {[weak self] _ in
+                let loginVC = LoginViewController()
+                self?.navigationController?.pushViewController(loginVC, animated: true)
+            }
+            .disposed(by: disposeBag)
 //        viewModelのbinding
         viewModel.validRegisterDriver
             .drive { validAll in

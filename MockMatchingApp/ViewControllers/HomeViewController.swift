@@ -17,8 +17,10 @@ class HomeViewController: UIViewController {
         
         DispatchQueue.main.asyncAfter(deadline: .now() + 0.5) {
             let regiterVC = RegisterViewController()
-            regiterVC.modalPresentationStyle = .fullScreen
-            self.present(regiterVC, animated: true, completion: nil)
+//            navVCによってregisterVCとloginVCを結合させる
+            let navVC = UINavigationController(rootViewController: regiterVC)
+            navVC.modalPresentationStyle = .fullScreen
+            self.present(navVC, animated: true, completion: nil)
         }
     }
 
