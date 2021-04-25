@@ -60,6 +60,9 @@ class RegisterViewController :UIViewController {
     }
     
     private func setUpBindings(){
+        
+//        textFieldのbinding
+        
         nameTextField.rx.text
             .asDriver()
             .drive { [weak self] text in
@@ -88,45 +91,32 @@ class RegisterViewController :UIViewController {
             .asDriver()
             .drive {[weak self] _ in
 //                ボタンをタップしたときにユーザーの情報をfirebaseに保存
-                self?.createUsertoFireAuth()
+                self?.createUser()
+            }
+            .disposed(by: disposeBag)
+        
+//        viewModelのbinding
+        viewModel.validRegisterDriver
+            .drive { validAll in
+              
+                self.registerButton.isEnabled = validAll
+                self.registerButton.backgroundColor = validAll ? .rgb(red: 227, green: 48, blue: 78) : .init(white: 0.7, alpha: 1)
             }
             .disposed(by: disposeBag)
 
     }
-    
-    private func createUsertoFireAuth(){
-        guard let email = emailTextField.text else {return}
-        guard let password = passwordTextField.text else {return}
+    private func createUser(){
+        let name = nameTextField.text
+        let email = emailTextField.text
+        let password = passwordTextField.text
 
         
-        Auth.auth().createUser(withEmail: email, password: password) { (auth, error) in
-            if let error = error {
-                print("Failed to Authentification:", error)
-                return
+        Auth.createUsertoFireAuth(name: name, email: email, password: password){ success in
+            if success {
+                print("success: createUsertoFireAuth")
+//                この処理が完了時にregisterVCを閉じる(dismiss)
+                self.dismiss(animated: true, completion: nil)
             }
-             
-            guard let uid = auth?.user.uid  else {return}
-            self.setUserDataToFireStore(email: email, uid: uid)
-        }
-    }
-    private func setUserDataToFireStore(email: String, uid: String){
-        
-        guard let name = nameTextField.text else {return}
-        
-//      dictionary型のユーザー情報を
-        let document = [
-            "name" : name,
-            "e-mail" : email,
-            "createdAt": Timestamp()
-        ] as [String : Any]
-        
-//        認証情報に紐づいたIDによって保存
-        Firestore.firestore().collection("users").document(uid).setData(document) { error in
-            if let error = error {
-                print("Failed to Authentification:", error)
-                return
-            }
-            print("Success Authentification")
         }
     }
 }

@@ -9,6 +9,7 @@
 /* Begin PBXBuildFile section */
 		056DB5751AF4CFF5D0152AFA /* Pods_MockMatchingAppTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = BBA19B7193C110FC5FAB7C09 /* Pods_MockMatchingAppTests.framework */; };
 		0C00222F2633453C0068E4BC /* RegisterViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0C00222E2633453C0068E4BC /* RegisterViewModel.swift */; };
+		0C68CA7626354ECF00E296B2 /* Firebase.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0C68CA7526354ECF00E296B2 /* Firebase.swift */; };
 		0C7815D7262D333B009EF7A4 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0C7815D6262D333B009EF7A4 /* AppDelegate.swift */; };
 		0C7815D9262D333B009EF7A4 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0C7815D8262D333B009EF7A4 /* SceneDelegate.swift */; };
 		0C7815DB262D333B009EF7A4 /* HomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0C7815DA262D333B009EF7A4 /* HomeViewController.swift */; };
@@ -56,6 +57,7 @@
 
 /* Begin PBXFileReference section */
 		0C00222E2633453C0068E4BC /* RegisterViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegisterViewModel.swift; sourceTree = "<group>"; };
+		0C68CA7526354ECF00E296B2 /* Firebase.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Firebase.swift; sourceTree = "<group>"; };
 		0C7815D3262D333B009EF7A4 /* MockMatchingApp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = MockMatchingApp.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		0C7815D6262D333B009EF7A4 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		0C7815D8262D333B009EF7A4 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -159,7 +161,7 @@
 			isa = PBXGroup;
 			children = (
 				0C781613262D3841009EF7A4 /* Views */,
-				0C781624262D40A5009EF7A4 /* extention */,
+				0C781624262D40A5009EF7A4 /* Extention */,
 				0C00222D263345150068E4BC /* ViewModel */,
 				0C781612262D3816009EF7A4 /* ViewControllers */,
 				0C7815D6262D333B009EF7A4 /* AppDelegate.swift */,
@@ -208,15 +210,16 @@
 			path = Views;
 			sourceTree = "<group>";
 		};
-		0C781624262D40A5009EF7A4 /* extention */ = {
+		0C781624262D40A5009EF7A4 /* Extention */ = {
 			isa = PBXGroup;
 			children = (
 				0C78161F262D4093009EF7A4 /* UIImage-extention.swift */,
 				0CAB1FC1262DEB3C00D68759 /* UIVIew-Extension.swift */,
 				0CA2770926301F5300EB4E79 /* UIColor.swift */,
 				0CA277242630398900EB4E79 /* UIButton.swift */,
+				0C68CA7526354ECF00E296B2 /* Firebase.swift */,
 			);
-			path = extention;
+			path = Extention;
 			sourceTree = "<group>";
 		};
 		0CB043B52631816100C12BCD /* Home */ = {
@@ -516,6 +519,7 @@
 				0CB043BD2631B9E600C12BCD /* RegisterTitleLabel.swift in Sources */,
 				0C7815DB262D333B009EF7A4 /* HomeViewController.swift in Sources */,
 				0CAB1FC2262DEB3C00D68759 /* UIVIew-Extension.swift in Sources */,
+				0C68CA7626354ECF00E296B2 /* Firebase.swift in Sources */,
 				0C7815D7262D333B009EF7A4 /* AppDelegate.swift in Sources */,
 				0CA2771A263034DC00EB4E79 /* CardInfoLabel.swift in Sources */,
 				0C781615262D3865009EF7A4 /* BottomControlView.swift in Sources */,

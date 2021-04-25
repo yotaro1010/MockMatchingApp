@@ -12,7 +12,17 @@ class HomeViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         view.backgroundColor = .white
+        setupLayout()
         
+        
+        DispatchQueue.main.asyncAfter(deadline: .now() + 0.5) {
+            let regiterVC = RegisterViewController()
+            regiterVC.modalPresentationStyle = .fullScreen
+            self.present(regiterVC, animated: true, completion: nil)
+        }
+    }
+
+    private func setupLayout(){
         let topControlView = TopControlView()
         
         let cardView = CardView()
@@ -38,9 +48,6 @@ class HomeViewController: UIViewController {
             stackView.leftAnchor.constraint(equalTo: view.leftAnchor)
         
         ].forEach { $0.isActive = true }
-
     }
-
-
 }
 
