@@ -19,6 +19,8 @@
 		0C7815F9262D3340009EF7A4 /* MockMatchingAppUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0C7815F8262D3340009EF7A4 /* MockMatchingAppUITests.swift */; };
 		0C781615262D3865009EF7A4 /* BottomControlView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0C781614262D3865009EF7A4 /* BottomControlView.swift */; };
 		0C781620262D4094009EF7A4 /* UIImage-extention.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0C78161F262D4093009EF7A4 /* UIImage-extention.swift */; };
+		0C7FEAF72636960C003DA60B /* PKHUD in Frameworks */ = {isa = PBXBuildFile; productRef = 0C7FEAF62636960C003DA60B /* PKHUD */; };
+		0C7FEAFD26369CE8003DA60B /* UserModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0C7FEAFC26369CE8003DA60B /* UserModel.swift */; };
 		0C992CEF2635B0C00062F4E6 /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0C992CEE2635B0C00062F4E6 /* LoginViewController.swift */; };
 		0CA2770A26301F5300EB4E79 /* UIColor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0CA2770926301F5300EB4E79 /* UIColor.swift */; };
 		0CA2771A263034DC00EB4E79 /* CardInfoLabel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0CA27719263034DC00EB4E79 /* CardInfoLabel.swift */; };
@@ -74,6 +76,7 @@
 		0C7815FA262D3340009EF7A4 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		0C781614262D3865009EF7A4 /* BottomControlView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BottomControlView.swift; sourceTree = "<group>"; };
 		0C78161F262D4093009EF7A4 /* UIImage-extention.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIImage-extention.swift"; sourceTree = "<group>"; };
+		0C7FEAFC26369CE8003DA60B /* UserModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserModel.swift; sourceTree = "<group>"; };
 		0C992CEE2635B0C00062F4E6 /* LoginViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
 		0CA2770926301F5300EB4E79 /* UIColor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIColor.swift; sourceTree = "<group>"; };
 		0CA27719263034DC00EB4E79 /* CardInfoLabel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CardInfoLabel.swift; sourceTree = "<group>"; };
@@ -106,6 +109,7 @@
 				0CAB1FBA262DDFF800D68759 /* RxRelay in Frameworks */,
 				0CAB1FB8262DDFF800D68759 /* RxCocoa in Frameworks */,
 				0CAB1FB6262DDFF800D68759 /* RxSwift in Frameworks */,
+				0C7FEAF72636960C003DA60B /* PKHUD in Frameworks */,
 				32A22577E7DF6411832CB6EF /* Pods_MockMatchingApp.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -164,6 +168,7 @@
 			children = (
 				0C781624262D40A5009EF7A4 /* Extention */,
 				0C00222D263345150068E4BC /* ViewModel */,
+				0C7FEAFB26369CC0003DA60B /* Models */,
 				0C781613262D3841009EF7A4 /* Views */,
 				0C781612262D3816009EF7A4 /* ViewControllers */,
 				0C7815D6262D333B009EF7A4 /* AppDelegate.swift */,
@@ -223,6 +228,14 @@
 				0C68CA7526354ECF00E296B2 /* Firebase.swift */,
 			);
 			path = Extention;
+			sourceTree = "<group>";
+		};
+		0C7FEAFB26369CC0003DA60B /* Models */ = {
+			isa = PBXGroup;
+			children = (
+				0C7FEAFC26369CE8003DA60B /* UserModel.swift */,
+			);
+			path = Models;
 			sourceTree = "<group>";
 		};
 		0CB043B52631816100C12BCD /* Home */ = {
@@ -292,6 +305,7 @@
 				0CAB1FB5262DDFF800D68759 /* RxSwift */,
 				0CAB1FB7262DDFF800D68759 /* RxCocoa */,
 				0CAB1FB9262DDFF800D68759 /* RxRelay */,
+				0C7FEAF62636960C003DA60B /* PKHUD */,
 			);
 			productName = MockMatchingApp;
 			productReference = 0C7815D3262D333B009EF7A4 /* MockMatchingApp.app */;
@@ -369,6 +383,7 @@
 			mainGroup = 0C7815CA262D333B009EF7A4;
 			packageReferences = (
 				0CAB1FB4262DDFF800D68759 /* XCRemoteSwiftPackageReference "RxSwift" */,
+				0C7FEAF52636960C003DA60B /* XCRemoteSwiftPackageReference "PKHUD" */,
 			);
 			productRefGroup = 0C7815D4262D333B009EF7A4 /* Products */;
 			projectDirPath = "";
@@ -534,6 +549,7 @@
 				0CB043B82631819400C12BCD /* RegisterTextField.swift in Sources */,
 				0CB043B126317D9900C12BCD /* RegisterViewController.swift in Sources */,
 				0CA2772A26303A2900EB4E79 /* CardImageView.swift in Sources */,
+				0C7FEAFD26369CE8003DA60B /* UserModel.swift in Sources */,
 				0C7815D9262D333B009EF7A4 /* SceneDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -867,6 +883,14 @@
 /* End XCConfigurationList section */
 
 /* Begin XCRemoteSwiftPackageReference section */
+		0C7FEAF52636960C003DA60B /* XCRemoteSwiftPackageReference "PKHUD" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/pkluz/PKHUD";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 5.4.0;
+			};
+		};
 		0CAB1FB4262DDFF800D68759 /* XCRemoteSwiftPackageReference "RxSwift" */ = {
 			isa = XCRemoteSwiftPackageReference;
 			repositoryURL = "https://github.com/ReactiveX/RxSwift";
@@ -878,6 +902,11 @@
 /* End XCRemoteSwiftPackageReference section */
 
 /* Begin XCSwiftPackageProductDependency section */
+		0C7FEAF62636960C003DA60B /* PKHUD */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 0C7FEAF52636960C003DA60B /* XCRemoteSwiftPackageReference "PKHUD" */;
+			productName = PKHUD;
+		};
 		0CAB1FB5262DDFF800D68759 /* RxSwift */ = {
 			isa = XCSwiftPackageProductDependency;
 			package = 0CAB1FB4262DDFF800D68759 /* XCRemoteSwiftPackageReference "RxSwift" */;

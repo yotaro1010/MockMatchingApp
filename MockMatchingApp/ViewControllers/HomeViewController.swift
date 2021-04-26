@@ -8,9 +8,12 @@
 import UIKit
 import RxSwift
 import FirebaseAuth
+import FirebaseFirestore
 
 class HomeViewController: UIViewController {
-
+    
+    private var userModel: UserModel?
+    
     private let disposeBag = DisposeBag()
     
     let logoutButton: UIButton = {
@@ -24,7 +27,7 @@ class HomeViewController: UIViewController {
         view.backgroundColor = .white
         setupLayout()
     }
-
+    
 //    loginしていたらHomeVCを表示、logoutしていたらregisterVCを表示させる
     override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(animated)
@@ -35,6 +38,20 @@ class HomeViewController: UIViewController {
             navVC.modalPresentationStyle = .fullScreen
             self.present(navVC, animated: true, completion: nil)
         }
+    }
+    
+//    userのデータをuidによって識別、FirestoreからHomeVCに持ってくる
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        guard let uid = Auth.auth().currentUser?.uid else {return}
+        Firestore.fetchUserFromFirestore(uid: uid) { (user) in
+ //        ここでデータを取得すると、ユーザーのデータはdictionary型で取得できる。
+  //        これをuserModelを作って変換する。
+            if let user = user {
+                self.userModel = user
+            }
+        }
+
     }
     
     private func setupLayout(){

@@ -11,6 +11,7 @@ import RxSwift
 import FirebaseAuth
 // 認証されたデータを管理
 import FirebaseFirestore
+import PKHUD
 
 class RegisterViewController :UIViewController {
     
@@ -125,8 +126,10 @@ class RegisterViewController :UIViewController {
         let email = emailTextField.text
         let password = passwordTextField.text
 
+        HUD.show(.progress)
         
         Auth.createUsertoFireAuth(name: name, email: email, password: password){ success in
+            HUD.hide()
             if success {
                 print("success: createUsertoFireAuth")
 //                この処理が完了時にregisterVCを閉じる(dismiss)

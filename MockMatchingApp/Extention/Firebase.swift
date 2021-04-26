@@ -27,6 +27,20 @@ extension Auth {
             }
         }
     }
+    
+    static func loginWithFireAuth(email: String, password: String, completion: @escaping (Bool) -> Void){
+                
+        Auth.auth().signIn(withEmail: email, password: password) { (response, error) in
+            if let error = error {
+                print("Failed to Login:", error)
+                completion(false)
+                return
+            }
+            print("Success: Login")
+            completion(true)
+        }
+    }
+    
 }
 
 extension Firestore {
@@ -51,6 +65,21 @@ extension Firestore {
             }
             completion(true)
             print("Success Authentification")
+        }
+    }
+//    Firestoreからユーザー情報を取得
+    static func fetchUserFromFirestore(uid: String, completion: @escaping (UserModel?) -> Void){
+        Firestore.firestore().collection("users").document(uid).getDocument { (snapshot, error) in
+            if let error = error {
+                print("faild to fetching user identification", error)
+                completion(nil)
+                return
+            }
+            guard let data = snapshot?.data() else {return}
+            
+            let user = UserModel(dictionary: data)
+            completion(user)
+
         }
     }
 }

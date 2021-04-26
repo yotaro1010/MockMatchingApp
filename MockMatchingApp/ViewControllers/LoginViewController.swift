@@ -8,6 +8,7 @@
 import UIKit
 import RxSwift
 import FirebaseAuth
+import PKHUD
 
 class LoginViewController: UIViewController {
     
@@ -67,27 +68,27 @@ class LoginViewController: UIViewController {
         loginButton.rx.tap
             .asDriver()
             .drive { [weak self] _ in
-                self?.loginWithFireAuth()
+                self?.login()
             }
             .disposed(by: disposeBag)
     }
     
-    private func loginWithFireAuth(){
+    private func login(){
         
         let email = emailTextField.text ?? ""
         let password = passwordTextField.text ?? ""
         
-        Auth.auth().signIn(withEmail: email, password: password) { (response, error) in
-            if let error = error {
-                print("Failed to Login:", error)
-                return
+//       ログイン時のアニメーションをつける
+        HUD.show(.progress)
+        Auth.loginWithFireAuth(email: email, password: password) {(success) in
+            if success {
+                self.dismiss(animated: true, completion: nil)
+            }else {
             }
-            print("Success: Login")
-            self.dismiss(animated: true, completion: nil)
-            
+        }
 //            loginに成功後、自動的にFirebaseのキーチェーンに情報が保存される,
 //            実装する側としては何もしなくてもいいが、ログインされたままの状態になってしまっている,
 //            ログアウトもできる状態にしておく
-        }
+        
     }
 }
