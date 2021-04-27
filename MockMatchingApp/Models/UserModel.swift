@@ -15,7 +15,7 @@ class UserModel {
     
     init(dictionary: [String: Any]){
 //        dic型のkeyを指定
-        self.email = dictionary["email"] as? String ?? ""
+        self.email = dictionary["e-mail"] as? String ?? ""
         self.name = dictionary["name"] as? String ?? ""
         self.createdAt = dictionary["createdAt"] as? Timestamp ?? Timestamp()
     }

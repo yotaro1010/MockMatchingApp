@@ -9,12 +9,18 @@ import UIKit
 import RxSwift
 import FirebaseAuth
 import FirebaseFirestore
+import PKHUD
 
 class HomeViewController: UIViewController {
     
     private var userModel: UserModel?
-    
+    private var otherUserModel = [UserModel]()
     private let disposeBag = DisposeBag()
+    
+    let topControlView = TopControlView()
+    let cardView = UIView()
+    let bottomControlView = BottomControlView()
+   
     
     let logoutButton: UIButton = {
         let button = UIButton(type: .system)
@@ -51,17 +57,30 @@ class HomeViewController: UIViewController {
                 self.userModel = user
             }
         }
-
+        fetchUsers()
+    }
+    
+    private func fetchUsers(){
+        HUD.show(.progress)
+        Firestore.fetchOtherUsersFromFirestore { (ohterUsers) in
+            HUD.hide()
+            self.otherUserModel = ohterUsers
+            
+//            取得した情報をCardViewに反映
+            self.otherUserModel.forEach { (userData) in
+                let card = CardView(user: userData)
+                self.cardView.addSubview(card)
+                card.anchor(top: self.cardView.topAnchor,
+                            bottom: self.cardView.bottomAnchor,
+                            left: self.cardView.leftAnchor,
+                            right: self.cardView.rightAnchor)
+            }
+            print("Success fetching user information")
+        }
     }
     
     private func setupLayout(){
-        let topControlView = TopControlView()
-        
-        let cardView = CardView()
        
-        let bottomControlView = BottomControlView()
-       
-        
         let stackView = UIStackView(arrangedSubviews: [topControlView, cardView, bottomControlView])
         stackView.translatesAutoresizingMaskIntoConstraints = false
         stackView.axis = .vertical

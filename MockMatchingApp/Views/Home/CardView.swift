@@ -29,9 +29,9 @@ class CardView:UIView{
     private let goodLabel = CardInfoLabel(text: "GOOD", textColor: .rgb(red: 137, green: 223, blue: 86))
     private let badLabel = CardInfoLabel(text: "BAD", textColor: .rgb(red: 222, green: 110, blue: 110))
     
-    override init(frame: CGRect) {
-        super.init(frame: frame)
-        setUpLayout()
+    init(user: UserModel) {
+        super.init(frame: .zero)
+        setUpLayout(user: user)
         setupGradientLayer()
         let panGesture = UIPanGestureRecognizer(target: self, action: #selector(panCardView(gesture:)))
         self.addGestureRecognizer(panGesture)
@@ -45,17 +45,20 @@ class CardView:UIView{
     
     @objc func panCardView(gesture: UIPanGestureRecognizer){
         let translation = gesture.translation(in: self)
+        guard let view = gesture.view else {return}
+        
+        
         if gesture.state == .changed {
             
             self.handlePanChange(translation: translation)
             
         }else if gesture.state == .ended {
-            self.handlePanEnded()
+            self.handlePanEnded(view: view, translation: translation)
         }
     }
     
     private func handlePanChange(translation: CGPoint){
-        let degree = translation.x / 20
+        let degree:CGFloat = translation.x / 20
         
 //        円周率のπ = pi これを用いて半円を描くアニメーションを作る
         let angle = degree * CGFloat.pi / 100
@@ -78,15 +81,27 @@ class CardView:UIView{
     }
     
 //    cardから手を離したときに戻る動き
-    private func handlePanEnded(){
-        UIView.animate(withDuration: 1, delay: 0.3, usingSpringWithDamping: 0.5, initialSpringVelocity: 0.7, options: []) {
-            self.transform = .identity
-            self.layoutIfNeeded()
-//            戻るときにlabelのアルファ値を0にする
-            self.goodLabel.alpha = 0
-            self.badLabel.alpha = 0
-
+    private func handlePanEnded(view: UIView, translation: CGPoint){
+//        x軸を基本としてマイナス側に行った時（左スワイプした時）
+        if translation.x <= -120 {
+            view.removeCardViewAnimation(x: -600)
         }
+//        x軸を基本としてプラス側に行った時（右スワイプした時）
+        else if translation.x >= 120 {
+            view.removeCardViewAnimation(x: 600)
+        }
+//        それ以外の動き（Viewから手を離して元に戻る時）
+        else {
+            UIView.animate(withDuration: 1, delay: 0.3, usingSpringWithDamping: 0.5, initialSpringVelocity: 0.7, options: []) {
+                self.transform = .identity
+                self.layoutIfNeeded()
+ //            戻るときにlabelのアルファ値を0にする
+                self.goodLabel.alpha = 0
+                self.badLabel.alpha = 0
+            }
+        }
+        
+       
     }
     
     
@@ -94,16 +109,17 @@ class CardView:UIView{
         fatalError("init(coder:) has not been implemented")
     }
         
-    private func setUpLayout(){
+    private func setUpLayout(user: UserModel){
         let infoVerticalStackView = UIStackView(arrangedSubviews: [residenceLabel, hobbyLabel, introductionLabel])
         infoVerticalStackView.axis = .vertical
         
         let baseStackView = UIStackView(arrangedSubviews: [infoVerticalStackView,infoButton])
         baseStackView.axis = .horizontal
         
-        
+//        viewの配置
         addSubview(cardImageView)
         addSubview(nameLabel)
+        
         addSubview(baseStackView)
         addSubview(goodLabel)
         addSubview(badLabel)
@@ -119,7 +135,10 @@ class CardView:UIView{
         nameLabel.anchor(bottom: baseStackView.topAnchor, left: cardImageView.leftAnchor, bottomPadding: 10, leftPadding: 20)
         goodLabel.anchor(top: cardImageView.topAnchor, left: cardImageView.leftAnchor, width: 140, height: 55, topPadding: 25, leftPadding: 20 )
         badLabel.anchor(top: cardImageView.topAnchor, right: cardImageView.rightAnchor, width: 140, height: 55, topPadding: 25, rightPadding: 20)
-
+        
+//      ユーザー情報をViewに反映
+        nameLabel.text = user.name
+        introductionLabel.text = user.email
     }
     
 }

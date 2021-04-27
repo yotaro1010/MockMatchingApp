@@ -82,4 +82,31 @@ extension Firestore {
 
         }
     }
+//    Firestoreから自分以外のユーザー情報を取得
+    static func fetchOtherUsersFromFirestore(completion: @escaping ([UserModel]) -> Void){
+        
+        Firestore.firestore().collection("users").getDocuments { (snapshots, error) in
+            if let error = error {
+                print("faild to fetching user identification", error)
+                return
+            }
+            
+//            var otherUsers = [UserModel]()
+//
+//
+//            snapshots?.documents.forEach({ (snapshot) in
+//                guard let data = snapshot.data() else {return}
+//                let users = UserModel(dictionary: data)
+//                otherUsers.append(users)
+//            })
+            
+//            mapメソッドを用いて新しい配列を作成
+            let otherUsers = snapshots?.documents.map({ (snapshot) -> UserModel in
+                let data = snapshot.data()
+                let users = UserModel(dictionary: data)
+                return users
+            })
+            completion(otherUsers ?? [UserModel]())
+        }
+    }
 }
