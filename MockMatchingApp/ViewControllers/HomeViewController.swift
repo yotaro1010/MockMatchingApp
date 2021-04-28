@@ -7,6 +7,7 @@
 
 import UIKit
 import RxSwift
+import RxCocoa
 import FirebaseAuth
 import FirebaseFirestore
 import PKHUD
@@ -32,6 +33,7 @@ class HomeViewController: UIViewController {
         super.viewDidLoad()
         view.backgroundColor = .white
         setupLayout()
+        setupBindings()
     }
     
 //    loginしていたらHomeVCを表示、logoutしていたらregisterVCを表示させる
@@ -124,5 +126,16 @@ class HomeViewController: UIViewController {
 //             do catch は自動的にerrorを含む
             print("Faild to Logout:", error)
         }
+    }
+    
+    private func setupBindings(){
+        topControlView.profileButton.rx.tap
+            .asDriver()
+            .drive {[weak self] _ in
+                let profileVC = ProfileViewController()
+                self?.present(profileVC, animated: true, completion: nil)
+            }
+            .disposed(by: disposeBag)
+
     }
 }
