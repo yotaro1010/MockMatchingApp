@@ -9,6 +9,8 @@
 /* Begin PBXBuildFile section */
 		056DB5751AF4CFF5D0152AFA /* Pods_MockMatchingAppTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = BBA19B7193C110FC5FAB7C09 /* Pods_MockMatchingAppTests.framework */; };
 		0C00222F2633453C0068E4BC /* RegisterViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0C00222E2633453C0068E4BC /* RegisterViewModel.swift */; };
+		0C0EBA1B263AE9500094C2CC /* ProfileTextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0C0EBA1A263AE9500094C2CC /* ProfileTextField.swift */; };
+		0C0EBA21263AF4060094C2CC /* infoCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0C0EBA20263AF4060094C2CC /* infoCollectionViewCell.swift */; };
 		0C620D4126399798002BC9FF /* ProfileViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0C620D4026399797002BC9FF /* ProfileViewController.swift */; };
 		0C620D4726399AAF002BC9FF /* ProfileImageView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0C620D4626399AAE002BC9FF /* ProfileImageView.swift */; };
 		0C620D4C26399DDB002BC9FF /* ProfileLabel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0C620D4B26399DDB002BC9FF /* ProfileLabel.swift */; };
@@ -63,6 +65,8 @@
 
 /* Begin PBXFileReference section */
 		0C00222E2633453C0068E4BC /* RegisterViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegisterViewModel.swift; sourceTree = "<group>"; };
+		0C0EBA1A263AE9500094C2CC /* ProfileTextField.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileTextField.swift; sourceTree = "<group>"; };
+		0C0EBA20263AF4060094C2CC /* infoCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = infoCollectionViewCell.swift; sourceTree = "<group>"; };
 		0C620D4026399797002BC9FF /* ProfileViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileViewController.swift; sourceTree = "<group>"; };
 		0C620D4626399AAE002BC9FF /* ProfileImageView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileImageView.swift; sourceTree = "<group>"; };
 		0C620D4B26399DDB002BC9FF /* ProfileLabel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileLabel.swift; sourceTree = "<group>"; };
@@ -147,11 +151,20 @@
 			path = ViewModel;
 			sourceTree = "<group>";
 		};
+		0C0EBA1F263AF3E90094C2CC /* Cells */ = {
+			isa = PBXGroup;
+			children = (
+				0C0EBA20263AF4060094C2CC /* infoCollectionViewCell.swift */,
+			);
+			path = Cells;
+			sourceTree = "<group>";
+		};
 		0C620D4526399A9E002BC9FF /* Profile */ = {
 			isa = PBXGroup;
 			children = (
 				0C620D4626399AAE002BC9FF /* ProfileImageView.swift */,
 				0C620D4B26399DDB002BC9FF /* ProfileLabel.swift */,
+				0C0EBA1A263AE9500094C2CC /* ProfileTextField.swift */,
 			);
 			path = Profile;
 			sourceTree = "<group>";
@@ -181,6 +194,7 @@
 		0C7815D5262D333B009EF7A4 /* MockMatchingApp */ = {
 			isa = PBXGroup;
 			children = (
+				0C0EBA1F263AF3E90094C2CC /* Cells */,
 				0C781624262D40A5009EF7A4 /* Extention */,
 				0C00222D263345150068E4BC /* ViewModel */,
 				0C7FEAFB26369CC0003DA60B /* Models */,
@@ -559,6 +573,7 @@
 				0C7815D7262D333B009EF7A4 /* AppDelegate.swift in Sources */,
 				0CA2771A263034DC00EB4E79 /* CardInfoLabel.swift in Sources */,
 				0C781615262D3865009EF7A4 /* BottomControlView.swift in Sources */,
+				0C0EBA1B263AE9500094C2CC /* ProfileTextField.swift in Sources */,
 				0C00222F2633453C0068E4BC /* RegisterViewModel.swift in Sources */,
 				0CBE74AF262F41F100B2D6DE /* CardView.swift in Sources */,
 				0CA277252630398900EB4E79 /* UIButton.swift in Sources */,
@@ -569,6 +584,7 @@
 				0CB043B126317D9900C12BCD /* RegisterViewController.swift in Sources */,
 				0CA2772A26303A2900EB4E79 /* CardImageView.swift in Sources */,
 				0C620D4126399798002BC9FF /* ProfileViewController.swift in Sources */,
+				0C0EBA21263AF4060094C2CC /* infoCollectionViewCell.swift in Sources */,
 				0C7FEAFD26369CE8003DA60B /* UserModel.swift in Sources */,
 				0C7815D9262D333B009EF7A4 /* SceneDelegate.swift in Sources */,
 			);

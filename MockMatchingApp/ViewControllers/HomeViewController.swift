@@ -133,6 +133,8 @@ class HomeViewController: UIViewController {
             .asDriver()
             .drive {[weak self] _ in
                 let profileVC = ProfileViewController()
+//                HomeVCのfetchUsersで取得した情報をProfileVCに渡す
+                profileVC.userForProfileCV = self?.userModel
                 self?.present(profileVC, animated: true, completion: nil)
             }
             .disposed(by: disposeBag)
